@@ -1,1 +1,2 @@
 # Eric-s-Data-Sheets
+This is a simple proof of concept showing how a csv file can be loaded into sql format. The sql format is then read using a schema manager and validator to ensure clean data. The data is then processed efficiently using OpenAI's API to pull useful information from the dataset. The code is still in early stages and the LLM power is limited due to the crude schema manager and validator. 
