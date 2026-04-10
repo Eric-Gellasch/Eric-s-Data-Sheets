@@ -22,3 +22,8 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+      - name: Compile Python files
+        run: |
+          python -m py_compile csv_ingestor.py schema_manager.py validator.py query_service.py llm_adapter.py main.py
+
