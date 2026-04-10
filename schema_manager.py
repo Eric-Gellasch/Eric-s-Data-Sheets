@@ -1,14 +1,23 @@
 import sqlite3
 
 def infer_type(series):
-    if series.dropna().apply(lambda x: str(x).isdigit()).all():
-        return "INTEGER"
+    s = series.dropna()
+
+    if s.empty:
+        return "TEXT"
+
     try:
-        series.dropna().astype(float)
+        s.astype(int)
+        return "INTEGER"
+    except:
+        pass
+
+    try:
+        s.astype(float)
         return "REAL"
     except:
         return "TEXT"
-    
+
 def drop_table(table_name, db_path="app.db"):
     conn = sqlite3.connect(db_path)
     conn.execute(f'DROP TABLE IF EXISTS "{table_name}"')
